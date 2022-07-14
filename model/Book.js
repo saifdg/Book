@@ -15,12 +15,24 @@ const bookSchema= new mongoose.Schema({
     required:true,
 },
 
- createdBy: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
-    required: true,
-  },
+ //createdBy: {
+    //type: mongoose.Schema.Types.ObjectId,
+    //ref: 'User',
+    //required: true,
+  //},
+
+  price:{
+    type: String,
+    required:true,
 },
+
+description:{
+  type: String,
+  required:true,
+},
+},
+
+
 { timestamps: true }
 );
 
