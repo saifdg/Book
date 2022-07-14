@@ -9,7 +9,7 @@ require("dotenv").config({path:"./config/.env"});
 //DATABASE
 connectDB();
 
-  //Middlewares
+//Middlewares
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
