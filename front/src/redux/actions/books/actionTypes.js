@@ -1,6 +1,7 @@
-
-//BOOKS//
-
 export const CREATE_BOOK_REQUEST = 'CREATE_BOOK_REQUEST';
 export const CREATE_BOOK_SUCCESS = 'CREATE_BOOK_SUCCESS';
 export const CREATE_BOOK_FAIL = 'CREATE_BOOK_FAIL';
+export const SET_USER = "SET_USER";
+export const SET_USERS = "SET_USERS";
+export const DELETE_USER = "DELETE_USER";
+export const ERRORS = "ERRORS";
