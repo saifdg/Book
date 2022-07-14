@@ -19,7 +19,7 @@ const Navbar = () => {
           <Link className="a" to={"/"}>About Us</Link>
         </div>
         <div className="auth">
-          <Link className="a" to={"/"}>Sign In</Link>
+          <Link className="a" to={"/login"}>Sign In</Link>
           <Link className="a adjust" to={"/"}>Register</Link>
         </div>
       </div>
