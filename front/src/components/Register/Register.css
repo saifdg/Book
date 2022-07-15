@@ -1,0 +1,19 @@
+.container {
+    width: 40% !important;
+    display: flex;
+    padding: 50px;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 4px black;
+    border-radius: 20px;
+    margin: 50px auto;
+  }
+  
+  form h2{
+    text-align: center;
+    padding-bottom: 20px;
+  }
+
+  form{
+    width: 60%;
+  }

@@ -1,52 +1,63 @@
-import React from "react";
-import "./Login.css"
-import {userState} from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import "./Login.css";
+import Inputs from "../Inputs";
+import { useDispatch, useSelector } from 'react-redux';
+import {Link, useNavigate} from "react-router-dom";
+import { LoginAction } from "../../redux/actions/books/authActions";
 
 
-const Login =()=>{
-    //const intialValues={email:"",password:""};//
-    //const {fromValues,setFormValues}=userState();//
+const Login = () => {
+  const [form, setForm] = useState({});
+  const navigate = useNavigate()
+  const dispatch=useDispatch()
+  const onChangeHandler = (e) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
+  };
 
-return(
-<div className="container">
-    <from>
-        <h1>Login Form</h1>
-        <div className="ui divider"></div>
-        <div className="ui form">
-           
-            <div class="filed">
-            <label>Email</label>
-            <input type="text" name="email" placeholder="email"   id="email" required></input> 
+  const onSubmit  = (e) => {
+    e.preventDefault();
+   dispatch(LoginAction(form,navigate)) // activer la fct login action 
+
+  }
+  console.log(form)
+  return (
+    <div className="container">
+      <form onSubmit={onSubmit}>
+        <h2>Login</h2>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">
+            Email address
+          </label>
+          <Inputs
+            type="email"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+            name="email"
+            onChangeHandler={onChangeHandler}
+          />
         </div>
-
-
-        <div class="filed">
-            <label>Password</label>
-            <input type="text" name="password" placeholder="password"  id="password" required></input>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">
+            Password
+          </label>
+          <Inputs
+            type="password"
+            class="form-control"
+            id="exampleInputPassword1"
+            name="password"
+            onChangeHandler={onChangeHandler}
+          />
         </div>
-
-        <button className="fluid ui button blue">Submit</button>
-
-        </div>
-
-
-
-
-
-    </from>
-
-
-
-
-
-
-
-
-</div>
-
-)
-
-}
+        <button type="submit" class="btn btn-primary">
+          Submit
+        </button>
+      </form>
+    </div>
+  );
+};
 
 export default Login;

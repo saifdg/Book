@@ -1,32 +1,15 @@
-body {
-    background: rgb(2, 0, 36);
-    background: radial-gradient(
-      circle,
-      rgba(2, 0, 36, 1) 0%,
-      rgba(30, 54, 59, 1) 0%,
-      rgba(93, 93, 116, 1) 100%
-    );
-  }
-  
-  .container {
-    display: flex !important;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    max-width: 500px;
-    width: 100%;
-    margin: auto;
-  }
-  .container > form {
-    width: 70%;
-    border: 1px solid #dfdfdf;
-    padding: 20px;
-    border-radius: 5px;
-    background: #fff;
-  }
- 
-  button {
-    background: #0563b4 !important;
-  }
-  
+.container {
+  width: 40% !important;
+  display: flex;
+  padding: 50px;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 0px 4px black;
+  border-radius: 20px;
+  margin: 50px auto;
+}
+
+form h2{
+  text-align: center;
+  padding-bottom: 20px;
+}
