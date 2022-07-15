@@ -1,9 +1,7 @@
-import React from "react";
-import "./Register.css";
-import { Link } from "react-router-dom";
-const Register=()=>{
+import React from 'react'
 
-return(
+const Register = () => {
+  return (
     <div className="container">
 
 <from>
@@ -44,7 +42,7 @@ return(
 
     </div>
 
-)
-
+  )
 }
-export default register;
+
+export default Register
