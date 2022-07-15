@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 
 
 const Login =()=>{
-    const intialValues={email:"",password:""};
-    const {fromValues,setFormValues}=userState();
+    //const intialValues={email:"",password:""};//
+    //const {fromValues,setFormValues}=userState();//
 
 return(
 <div className="container">
