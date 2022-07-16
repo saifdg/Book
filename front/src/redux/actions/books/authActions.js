@@ -30,6 +30,12 @@ export const LoginAction = (form, navigate) => (dispatch) => {
       const decode = jwt_decode(token);
       dispatch(setUser(decode));
       setAuth(token);
+      if(decode.role=="admin"){
+        navigate("/admin");
+      }else{
+        navigate("/");
+      }
+
     })
     .catch((err) => {
       dispatch({

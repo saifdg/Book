@@ -2,14 +2,15 @@ import React from 'react'
 import "./BookCard.css"
 import book from '../../assets/book.png'
 
-const BookCard = () => {
+const BookCard = (props) => {
+ const {title,category,author,price,description}=props;
   return (
     <div className='book'>
         <div className="imgContainer">
         <img src={book} alt="book" />
         </div>
         <div className="describtion">
-            <p>The mind of a leader</p>
+            <p>{title}</p>
         </div>
     </div>
   )
