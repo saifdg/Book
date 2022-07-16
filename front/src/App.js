@@ -5,19 +5,20 @@ import Navbar from "./components/Navbar/Navbar";
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
 import Home from "./components/Home/Home";
-import Book from "./components/Books/Book";
+import Banner from "./components/Banner/Banner";
+import Books from "./components/Books/Books";
+
 function App() {
   return (
     <BrowserRouter>
-        <Navbar />
-        <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/store" element={<Book/>}/>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Banner />} />
 
-        </Routes>
-        <Footer />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+      </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }
