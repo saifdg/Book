@@ -7,6 +7,7 @@ import Register from "./components/Register/Register";
 import Home from "./components/Home/Home";
 import Banner from "./components/Banner/Banner";
 import Books from "./components/Books/Books";
+import Admin from "./components/Admin/Admin";
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Banner />} />
-
+        <Route path="/admin" element={<Admin />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
       </Routes>
