@@ -29,13 +29,20 @@ usersRoute.post(
       throw new Error("User Exist");
     }
     const userCreated = await User.create({ name, email, role, password });
+    const decodedToken = {
+      _id: userCreated._id,
+      name: userCreated.name,
+      role: userCreated.role,
+      password: userCreated.password,
+      email: userCreated.password,
+    };
     res.json({
       _id: userCreated._id,
       name: userCreated.name,
       role: userCreated.role,
       password: userCreated.password,
       email: userCreated.password,
-      token: generateToken(userCreated._id),
+      token: generateToken(decodedToken),
     });
   })
 );
@@ -48,19 +55,19 @@ usersRoute.post(
     const user = await User.findOne({ email: email });
     if (user && (await user.isPasswordMatch(password))) {
       res.status(200);
+      const decodedToken={
+        id: user._id,
+        name: user.name,
+        role: user.role,
+        email: user.email,
+      }
       res.json({
         _id: user._id,
         name: user.name,
         role: user.role,
         password: user.password,
         email: user.email,
-        token: generateToken(
-          _user._id,
-          user.name,
-          user.role,
-          user.password,
-          user.email
-        ),
+        token: generateToken(decodedToken),
       });
       //res.send(user)
     } else {
@@ -70,6 +77,25 @@ usersRoute.post(
     }
   })
 );
+
+// @route Get api/user/:id
+// @desc Get user by id
+// @access Private
+usersRoute.get("/:id", async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id);
+
+    if (!user) {
+      return res.status(404).json({ msg: "Utilisateur introuvable" });
+    }
+    res.json({ user });
+  } catch (err) {
+    console.error(err.message);
+    if (err.kind === "ObjectId") {
+      return res.status(404).json({ msg: "Utilisateur introuvable" });
+    }
+  }
+});
 
 //update user
 usersRoute.put(
