@@ -137,7 +137,17 @@ usersRoute.delete(
 );
 
 //fetch users
-usersRoute.get("/", (req, res) => {
-  res.send(req.user);
-});
+usersRoute.get('/', expressAsyncHandler(async(req,res)=>{
+
+  const user= await User.find({});
+  if(user){
+      res.status(200);
+      res.json(user);
+  }
+  else{
+      res.status(500);
+      throw new Error('There are no books');
+
+  }
+}))
 module.exports = usersRoute;
